@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>// NOVO_ALUNO // Python 2077</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container-form">
+        <header class="amarelo">
+            <h1>&gt;_ CADASTRAR NOVO ALUNO</h1>
+        </header>
+
+        <form action="{{ url_for('novo_salvar') }}" method="POST" novalidate>
+            <div class="campo">
+                <label>Nome completo</label>
+                <input type="text" name="nome" value="{{ aluno.nome or '' }}" placeholder="Ex: V Silva">
+                {% if erros.nome %}<span class="erro">{{ erros.nome }}</span>{% endif %}
+            </div>
+
+            <div class="campo">
+                <label>E-mail</label>
+                <input type="text" name="email" value="{{ aluno.email or '' }}" placeholder="aluno@escola.edu.br">
+                {% if erros.email %}<span class="erro">{{ erros.email }}</span>{% endif %}
+            </div>
+
+            <div class="linha">
+                <div class="campo">
+                    <label>Escola</label>
+                    <select name="escola">
+                        <option value="">-- selecione --</option>
+                        {% for e in escolas %}
+                            <option value="{{ e }}" {% if aluno.escola == e %}selected{% endif %}>{{ e }}</option>
+                        {% endfor %}
+                    </select>
+                    {% if erros.escola %}<span class="erro">{{ erros.escola }}</span>{% endif %}
+                </div>
+                <div class="campo">
+                    <label>Curso</label>
+                    <select name="curso">
+                        <option value="">-- selecione --</option>
+                        {% for c in cursos %}
+                            <option value="{{ c }}" {% if aluno.curso == c %}selected{% endif %}>{{ c }}</option>
+                        {% endfor %}
+                    </select>
+                    {% if erros.curso %}<span class="erro">{{ erros.curso }}</span>{% endif %}
+                </div>
+            </div>
+
+            <div class="linha">
+                <div class="campo">
+                    <label>Matrícula</label>
+                    <input type="text" name="matricula" value="{{ aluno.matricula or '' }}" placeholder="2077001">
+                    {% if erros.matricula %}<span class="erro">{{ erros.matricula }}</span>{% endif %}
+                </div>
+                <div class="campo">
+                    <label>Telefone</label>
+                    <input type="text" name="telefone" value="{{ aluno.telefone or '' }}" placeholder="(81) 90000-0000">
+                </div>
+            </div>
+
+            <div class="campo">
+                <label>Data de nascimento</label>
+                <input type="date" name="dataNascimento" value="{{ aluno.dataNascimento or '' }}">
+            </div>
+
+            <div class="acoes-form">
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <a href="{{ url_for('listar') }}" class="btn btn-ghost">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

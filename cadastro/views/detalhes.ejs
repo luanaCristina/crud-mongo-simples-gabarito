@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>// DETALHES // Cadastro 2077</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="container-form">
+        <header>
+            <h1>&gt;_ DOSSIÊ DO ALUNO</h1>
+            <p>// REGISTRO COMPLETO //</p>
+        </header>
+
+        <div class="ficha">
+            <div class="ficha-linha">
+                <span class="ficha-label">Nome</span>
+                <span class="ficha-valor"><%= aluno.nome %></span>
+            </div>
+            <div class="ficha-linha">
+                <span class="ficha-label">E-mail</span>
+                <span class="ficha-valor email"><%= aluno.email %></span>
+            </div>
+            <div class="ficha-linha">
+                <span class="ficha-label">Escola</span>
+                <span class="ficha-valor"><%= aluno.escola %></span>
+            </div>
+            <div class="ficha-linha">
+                <span class="ficha-label">Curso</span>
+                <span class="ficha-valor"><span class="badge"><%= aluno.curso %></span></span>
+            </div>
+            <div class="ficha-linha">
+                <span class="ficha-label">Matrícula</span>
+                <span class="ficha-valor"><%= aluno.matricula %></span>
+            </div>
+            <div class="ficha-linha">
+                <span class="ficha-label">Telefone</span>
+                <span class="ficha-valor"><%= aluno.telefone || "—" %></span>
+            </div>
+            <div class="ficha-linha">
+                <span class="ficha-label">Nascimento</span>
+                <span class="ficha-valor"><%= aluno.dataNascimento || "—" %></span>
+            </div>
+            <div class="ficha-linha">
+                <span class="ficha-label">Cadastrado em</span>
+                <span class="ficha-valor">
+                    <%= aluno.criadoEm ? new Date(aluno.criadoEm).toLocaleString("pt-BR") : "—" %>
+                </span>
+            </div>
+        </div>
+
+        <div class="acoes-form">
+            <a href="/editar/<%= aluno._id %>" class="btn btn-cyan">Editar</a>
+            <a href="/" class="btn btn-ghost">Voltar</a>
+        </div>
+    </div>
+</body>
+
+</html>

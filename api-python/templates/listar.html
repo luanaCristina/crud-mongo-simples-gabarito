@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>// ALUNOS_DB // Python 2077</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>&gt;_ ALUNOS_DB // PYTHON 2077</h1>
+            <p>SISTEMA DE CADASTRO ACADÊMICO &bull; FLASK + MONGODB</p>
+        </header>
+
+        <div class="toolbar">
+            <a href="{{ url_for('novo_form') }}" class="btn btn-primary">+ Novo Aluno</a>
+            <!-- Botoes de navegacao para as outras APIs -->
+            <a href="http://localhost:3001/" class="btn btn-ghost">&gt; API Cadastro Node (3001)</a>
+            <a href="http://localhost:3000/show" class="btn btn-ghost">&gt; API Pessoas Node (3000)</a>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Escola</th>
+                    <th>Curso</th>
+                    <th>Matrícula</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if alunos|length == 0 %}
+                    <tr>
+                        <td colspan="6" class="vazio">// NENHUM ALUNO CADASTRADO //</td>
+                    </tr>
+                {% else %}
+                    {% for aluno in alunos %}
+                        <tr>
+                            <td>{{ aluno.nome }}</td>
+                            <td class="email">{{ aluno.email }}</td>
+                            <td>{{ aluno.escola }}</td>
+                            <td><span class="badge">{{ aluno.curso }}</span></td>
+                            <td>{{ aluno.matricula }}</td>
+                            <td class="acoes">
+                                <a href="{{ url_for('detalhes', id=aluno._id) }}" class="btn btn-primary btn-sm">Detalhes</a>
+                                <a href="{{ url_for('editar_form', id=aluno._id) }}" class="btn btn-cyan btn-sm">Editar</a>
+                                <a href="{{ url_for('deletar', id=aluno._id) }}" class="btn btn-danger btn-sm"
+                                   onclick="return confirm('Deletar este aluno?')">Deletar</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+
+        <footer>// WAKE THE F*CK UP SAMURAI, WE HAVE A DATABASE TO BURN //</footer>
+    </div>
+</body>
+
+</html>

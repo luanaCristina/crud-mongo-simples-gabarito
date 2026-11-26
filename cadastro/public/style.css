@@ -1,0 +1,335 @@
+/* ============================================================
+   TEMA CYBERPUNK 2077 - Cadastro de Alunos
+   Arquivo unico de estilos usado por todas as telas (views).
+   ============================================================ */
+
+/* Variaveis de cor: mude aqui e o site inteiro muda de cor */
+:root {
+    --neon-yellow: #fcee0a;
+    --neon-cyan: #00f0ff;
+    --neon-pink: #ff003c;
+    --bg-dark: #05060a;
+    --bg-panel: #0d1117;
+    --grid: rgba(0, 240, 255, 0.08);
+}
+
+/* Reset basico: tira margens/paddings padrao do navegador */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Fundo escuro com grade estilo "painel de controle" */
+body {
+    font-family: "Courier New", monospace;
+    background:
+        linear-gradient(var(--grid) 1px, transparent 1px) 0 0 / 40px 40px,
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0 / 40px 40px,
+        radial-gradient(circle at 50% 0%, #10131f 0%, var(--bg-dark) 70%);
+    color: #e6edf3;
+    min-height: 100vh;
+    padding: 30px 20px;
+}
+
+/* ===================== LAYOUT ===================== */
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Container mais estreito para os formularios */
+.container-form {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+/* ===================== CABECALHO ===================== */
+
+header {
+    border: 2px solid var(--neon-cyan);
+    background: rgba(0, 240, 255, 0.04);
+    padding: 20px 25px;
+    margin-bottom: 25px;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 97% 100%, 0 100%);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+header h1 {
+    color: var(--neon-yellow);
+    font-size: 2rem;
+    letter-spacing: 3px;
+    text-shadow: 0 0 8px var(--neon-yellow);
+}
+
+header p {
+    color: var(--neon-cyan);
+    margin-top: 6px;
+    letter-spacing: 2px;
+    font-size: .85rem;
+}
+
+/* Variacoes de cor do cabecalho (muda a borda e o titulo) */
+header.amarelo {
+    border-color: var(--neon-yellow);
+    background: rgba(252, 238, 10, 0.04);
+    box-shadow: 0 0 20px rgba(252, 238, 10, 0.25);
+}
+header.amarelo h1 {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 8px var(--neon-cyan);
+    font-size: 1.6rem;
+}
+
+header.rosa {
+    border-color: var(--neon-pink);
+    background: rgba(255, 0, 60, 0.05);
+    box-shadow: 0 0 20px rgba(255, 0, 60, 0.25);
+}
+header.rosa h1 {
+    color: var(--neon-pink);
+    text-shadow: 0 0 8px var(--neon-pink);
+    font-size: 1.6rem;
+}
+
+/* ===================== BOTOES ===================== */
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    font-family: inherit;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 12px 22px;
+    cursor: pointer;
+    border: none;
+    transition: all .15s ease;
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 92% 100%, 0 100%);
+}
+
+.btn-primary {
+    background: var(--neon-yellow);
+    color: #000;
+    box-shadow: 0 0 12px var(--neon-yellow);
+}
+.btn-primary:hover {
+    background: #fff;
+    box-shadow: 0 0 20px var(--neon-yellow);
+}
+
+.btn-cyan {
+    background: var(--neon-cyan);
+    color: #000;
+}
+.btn-cyan:hover {
+    box-shadow: 0 0 16px var(--neon-cyan);
+}
+
+.btn-danger {
+    background: var(--neon-pink);
+    color: #fff;
+}
+.btn-danger:hover {
+    box-shadow: 0 0 16px var(--neon-pink);
+}
+
+.btn-ghost {
+    background: transparent;
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+}
+.btn-ghost:hover {
+    box-shadow: 0 0 12px var(--neon-cyan);
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: .75rem;
+}
+
+.toolbar {
+    margin-bottom: 20px;
+}
+
+/* ===================== TABELA (LISTAGEM) ===================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-panel);
+    border: 1px solid var(--neon-cyan);
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.15);
+}
+
+thead th {
+    background: linear-gradient(90deg, rgba(252, 238, 10, 0.15), transparent);
+    color: var(--neon-yellow);
+    text-align: left;
+    padding: 14px 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: .8rem;
+    border-bottom: 2px solid var(--neon-yellow);
+}
+
+tbody td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.12);
+    font-size: .9rem;
+}
+tbody tr:hover {
+    background: rgba(0, 240, 255, 0.05);
+}
+
+.email {
+    color: var(--neon-cyan);
+}
+
+.acoes {
+    white-space: nowrap;
+}
+
+.vazio {
+    text-align: center;
+    padding: 40px;
+    color: var(--neon-pink);
+    letter-spacing: 2px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    font-size: .72rem;
+    letter-spacing: 1px;
+}
+
+/* ===================== FORMULARIOS ===================== */
+
+form {
+    background: var(--bg-panel);
+    border: 1px solid var(--neon-cyan);
+    padding: 28px;
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.15);
+}
+
+/* Formulario de edicao usa a borda rosa */
+form.rosa {
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 25px rgba(255, 0, 60, 0.12);
+}
+
+.campo {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    color: var(--neon-yellow);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: .78rem;
+    margin-bottom: 6px;
+}
+
+input, select {
+    width: 100%;
+    background: #05070d;
+    border: 1px solid rgba(0, 240, 255, 0.4);
+    color: #e6edf3;
+    padding: 11px 12px;
+    font-family: inherit;
+    font-size: .95rem;
+    outline: none;
+    transition: all .15s ease;
+}
+
+input:focus, select:focus {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+}
+
+/* Linha com dois campos lado a lado */
+.linha {
+    display: flex;
+    gap: 16px;
+}
+.linha .campo {
+    flex: 1;
+}
+
+.acoes-form {
+    display: flex;
+    gap: 14px;
+    margin-top: 8px;
+}
+
+/* ===================== RODAPE ===================== */
+
+footer {
+    margin-top: 25px;
+    text-align: center;
+    color: #3a4557;
+    font-size: .75rem;
+    letter-spacing: 2px;
+}
+
+/* ===================== MENSAGENS DE ERRO (VALIDACAO) ===================== */
+
+.erro {
+    display: block;
+    margin-top: 6px;
+    color: var(--neon-pink);
+    font-size: .78rem;
+    letter-spacing: 1px;
+}
+
+/* Deixa a borda do campo rosa quando ha um erro logo abaixo dele */
+.campo input + .erro,
+.campo select + .erro {
+    /* apenas visual; a borda vermelha e aplicada pela regra abaixo */
+}
+.campo:has(.erro) input,
+.campo:has(.erro) select {
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 8px rgba(255, 0, 60, 0.4);
+}
+
+/* ===================== FICHA DE DETALHES ===================== */
+
+.ficha {
+    background: var(--bg-panel);
+    border: 1px solid var(--neon-cyan);
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.15);
+    padding: 10px 24px;
+    margin-bottom: 20px;
+}
+
+.ficha-linha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.12);
+}
+
+.ficha-linha:last-child {
+    border-bottom: none;
+}
+
+.ficha-label {
+    color: var(--neon-yellow);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: .78rem;
+}
+
+.ficha-valor {
+    text-align: right;
+    font-size: .95rem;
+}

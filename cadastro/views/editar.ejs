@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>// EDITAR_ALUNO // Cadastro 2077</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="container-form">
+        <header class="rosa">
+            <h1>&gt;_ EDITAR ALUNO</h1>
+        </header>
+
+        <form class="rosa" action="/editar/<%= aluno._id %>" method="POST" novalidate>
+            <div class="campo">
+                <label>Nome completo</label>
+                <input type="text" name="nome" value="<%= aluno.nome %>">
+                <% if (erros.nome) { %><span class="erro"><%= erros.nome %></span><% } %>
+            </div>
+
+            <div class="campo">
+                <label>E-mail</label>
+                <input type="text" name="email" value="<%= aluno.email %>">
+                <% if (erros.email) { %><span class="erro"><%= erros.email %></span><% } %>
+            </div>
+
+            <div class="linha">
+                <div class="campo">
+                    <label>Escola</label>
+                    <select name="escola">
+                        <% escolas.forEach(function(e) { %>
+                            <option value="<%= e %>" <%= aluno.escola === e ? "selected" : "" %>><%= e %></option>
+                        <% }) %>
+                    </select>
+                    <% if (erros.escola) { %><span class="erro"><%= erros.escola %></span><% } %>
+                </div>
+                <div class="campo">
+                    <label>Curso</label>
+                    <select name="curso">
+                        <% cursos.forEach(function(c) { %>
+                            <option value="<%= c %>" <%= aluno.curso === c ? "selected" : "" %>><%= c %></option>
+                        <% }) %>
+                    </select>
+                    <% if (erros.curso) { %><span class="erro"><%= erros.curso %></span><% } %>
+                </div>
+            </div>
+
+            <div class="linha">
+                <div class="campo">
+                    <label>Matrícula</label>
+                    <input type="text" name="matricula" value="<%= aluno.matricula %>">
+                    <% if (erros.matricula) { %><span class="erro"><%= erros.matricula %></span><% } %>
+                </div>
+                <div class="campo">
+                    <label>Telefone</label>
+                    <input type="text" name="telefone" value="<%= aluno.telefone || '' %>">
+                </div>
+            </div>
+
+            <div class="campo">
+                <label>Data de nascimento</label>
+                <input type="date" name="dataNascimento" value="<%= aluno.dataNascimento || '' %>">
+            </div>
+
+            <div class="acoes-form">
+                <button type="submit" class="btn btn-danger">Atualizar</button>
+                <a href="/" class="btn btn-ghost">Voltar</a>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
